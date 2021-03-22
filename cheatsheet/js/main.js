@@ -4,7 +4,7 @@ function saludo() {
     alert("Hola desde un script externo");
     console.log("Has hecho click y aparezco a tu lado");
 }
-document.getElementsByTagName("a").item(2).addEventListener("click", saludo)
+// document.getElementsByTagName("a").item(2).addEventListener("click", saludo)
 
 //-------------------- Depuración / Loggin --------------//
 // alert("Mensaje");
@@ -151,3 +151,107 @@ console.log(person.children[1]);
 
 person.jump();
 person.walk();
+
+// This
+const person2 = {
+    name: "Thomas",
+    age: 30,
+    talk() {
+        console.log(this);
+        console.log(`Me llamo ${this.name}`);
+    }
+}
+person2.talk();
+
+const person3 = {
+    name: "Tommy",
+    age: 40,
+    talk() {
+        console.log(this);
+        console.log(`Me llamo ${this.name}`);
+    }
+}
+person3.talk();
+
+console.clear();
+//-------------------- Arrays --------------//
+let selectedColors = ["red", "blue"]; //Array de Strings
+console.log(selectedColors, selectedColors.length, typeof selectedColors);
+
+selectedColors[2] = "green"; // Añadimos elementos al array aunque no exista
+console.log(selectedColors, selectedColors.length);
+
+selectedColors[selectedColors.length] = "yellow";
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.push("violet", "white"); // Se añade un ultimo elemento
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.pop();// Con POP quita el último elemento
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.unshift("darkblue", "white","orange"); // meter elementos al principio del array
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.shift();//Elimina el primer elemento
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.sort();// Para ordenar arrays
+console.log(selectedColors);
+
+console.log(`El Rojo está en el índice`, selectedColors.indexOf("red"));//para buscar el indice de ese elemento
+
+console.log(selectedColors[selectedColors.indexOf("red") + 1]);//ejercicio
+
+console.log(selectedColors.slice(1, 3));  //Devuelve una seccion del array
+console.log(selectedColors);
+
+console.log("Los elementos borrados son", selectedColors.splice(1, 3));
+console.log("el array se queda así", selectedColors);
+
+console.clear();
+/*
+CREAR UN OBJETO NIÑO QUE TENGA DE PROPIEDADES, NOMBRE ALTURA 
+GENERO Y AMIGOS AMIGOS ESTARA VACIO PARA AÑADIRLOS POSTERIORMENTE, 3 NIÑOS.
+DESPUES AÑADIREMOS UNO EXTRA AL INICIO*/
+let kid = {
+    name: "marcus",
+    height: 1.74,
+    gender: "male",
+    friends: ["Peter"],
+    loseFriend() {
+        this.friends.pop()
+    }
+}
+kid.friends.push("Mary", "Stanis", "Thomas");
+
+kid.friends.unshift("Tim");
+console.log(kid);
+
+kid.loseFriend();
+console.log(kid);
+
+/* *************** FIN DEL EJERCICIO******************* */
+console.clear();
+
+//-------------------- Condicionales --------------//
+const randomNumber = 9;
+const guessedNumber = "5";
+
+if (typeof randomNumber === typeof guessedNumber) {
+    console.log("Hey, tienes que decirme el mismo tipo");
+}
+
+if(randomNumber === guessedNumber) {
+    console.log("has acertado el número");
+} else if(randomNumber > guessedNumber) {
+    console.log("El número secreto es mayor");
+} else if ("randomNumber < guessedNumber") {
+    console.log("El número secreto es menor");
+} else {
+    console.log(randomNumber != guessedNumber);
+    console.log("Dime otro número");
+}
+
+
+
