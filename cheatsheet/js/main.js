@@ -394,8 +394,62 @@ while (contador <= 10) {
 
 // forEach
 console.log(numbersArray);
-numbersArray.forEach(function (value, index) {
-    console.log(`Indice ${index}: ${value}`);
+
+numbersArray.forEach(function (item, index) {
+    console.log(`Indice ${index}: ${item}`);
 });
+
+
+numbersArray.forEach((item, index) => console.log(`INDICE ${index}: ${item}`));
+
+
+// Para copiar los valores del array de arriba en otro array
+let otherArray = [];
+
+numbersArray.forEach(item => otherArray.push(item));
+
+console.log(otherArray);
+
+//For...of parecido al forEach pero no accede al index
+//Realiza una funcion para cada valor del iterable que decidamos
+for (const item of numbersArray) {
+    console.log(item);
+}
+
+for (const item of "Hola, iterable") {
+    console.log(item);
+}
+
+// Continue
+
+for (let i = 0; i < 5; i++) {
+    if (i === 3 || i === 2) {
+        continue;// salta a la siguente iteración
+    }
+    console.log("Using continue", i);
+}
+console.clear();
+// Break
+// while (true) {
+//     while (true) {
+//         break;// solo rompe el bucle interno
+//     }
+// }
+let i = 0;
+let k;
+mainLoop: while (true) {
+    console.log("Outer Loop", i);
+    i++;
+    k = 1;
+    while (true) {
+        console.log("Inner Loop", k);
+        k++;
+        if (i === 5 && k ===5){
+            break mainLoop;
+        }else if ( k === 5) {
+            break;
+        }
+    }
+}
 
 
