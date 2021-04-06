@@ -30,11 +30,85 @@ colorButton.addEventListener("click", function (event) {
     //Partimos de un HTML con una lista de 3 URLs (texto) de imágenes y un element img.
     //Al hacer click en cada URL, cambiará la imagen a la que contenga dicha URL  
 const listItems = document.getElementsByTagName("li");
-const image = document.querySelector("img");
+const image = document.querySelectorAll("img")[0];
 
 const changeImage = (e) => image.src = e.target.textContent;
 
 listItems[0].addEventListener("click", changeImage);
 listItems[1].addEventListener("click", changeImage);
 listItems[2].addEventListener("click", changeImage);
+
+// v2 - Autoría Juan Albertos
+// const list = document.querySelector("ul");
+// const image = document.querySelector("img");
+
+// const changeImage = e => image.src = e.target.textContent;
+
+// list.addEventListener("click", changeImage);
+
+// Apartado 4
+
+const ap4Paragraph = document.getElementById('fillableParagraph');
+const ap4Input = document.querySelector ("input");
+const ap4Button = document.querySelectorAll("button")[1];
+
+ap4Button.addEventListener("click", () => {
+    ap4Paragraph.textContent = ap4Input.value;
+    ap4Input.value = "";
+});
+    // Apartado 4.2
+    const ap42Paragraph = document.getElementById('fillableParagraph2');
+    const ap42Input = document.querySelectorAll("input")[1];
+    
+    ap42Input.addEventListener("input", () =>{ 
+        ap42Paragraph.textContent = ap42Input.value;
+    });
+
+// Apartado 5
+const textarea = document.querySelector("#textAreaToValidate");
+textarea.addEventListener("input", e => {
+    // if (e.target.value.length > 15) {
+    //     e.target.style.color = "red";
+    // } else {
+    //     e.target.style.color  = "green";
+    // } con if/else y mejor con valor ternario, debajo
+    e.target.style.color = e.target.value.length > 15 ? "red" : "green"
+});
+
+// Apartado 6
+const evenInput = document.querySelector("#evenNumberInput");
+evenInput.nextElementSibling.addEventListener("click", () => {
+    if (evenInput.value % 2 === 0) {
+        evenInput.style.border = " 2px dashed red";
+    } else {
+        evenInput.style.border = "";
+
+    }
+});
+
+// Apartado 7
+const ul = document.getElementById("listToFill");
+
+for (let i = 1; i <= 10; i++) {
+    const newLi = document.createElement("li");
+    newLi.textContent = `Elemento ${i}`;
+    ul.appendChild(newLi);
+}
+
+// Apartado 8
+const newTabButton = document.querySelector("#newTab");
+const link = document.querySelector("a");
+newTabButton.addEventListener("click", () =>link.target = "_blank");
+
+// Apartado 9
+const ap9Paragraph = document.querySelector("#colorsParagraph");
+document.querySelector("#colorsSelect").addEventListener("change", e => {
+    ap9Paragraph.style.color = e.target.value;
+});
+
+// Apartado 10
+
+
+    
+
 
