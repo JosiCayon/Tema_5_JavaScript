@@ -177,6 +177,31 @@ const person3 = {
 }
 person3.talk();
 
+// OBJECT CONSTRUCTOR using functions
+function Car(brand, color, weight, topSpeed) {
+    this.brand = brand;
+    this.color = color;
+    this.weight = weight;
+    this.topSpeed = topSpeed;
+    this.getDescription = function() {
+        return `This ${this.color} ${this.brand} weights ${this.weight}`+
+         `kilogrames anda can be reach up to ${this.topSpeed} km/h`
+    }
+
+}
+
+const car1 = new Car ("Mercedes", undefined, 4500, 300);
+const car2 = new Car ("Ford", "red", 2000, 200);
+const car3 = new Car ("Seat", "blue", 1500, 225);
+
+
+
+
+
+
+
+
+
 console.clear();
 //-------------------- Arrays --------------//
 let selectedColors = ["red", "blue"]; //Array de Strings

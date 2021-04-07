@@ -122,6 +122,8 @@ document.getElementById("randomButton").onclick = () => {
 
 // Apartado 11
 
+
+
 // Apartado 12
 document.querySelector("#toggler").onclick = (e) => e.target.classList.toggle("btn");// Devuelve HTMLCollection
 
