@@ -107,8 +107,47 @@ document.querySelector("#colorsSelect").addEventListener("change", e => {
 });
 
 // Apartado 10
+const currentRandom = document.getElementById("currentRandom");
+const totalNumbers = document.getElementById("totalNumbers");
+const oddNumbers = document.getElementById("oddNumbers");
+const evenNumbers = document.getElementById("evenNumbers");
 
+document.getElementById("randomButton").onclick = () => {
+    const randomNumber = Math.floor( Math.random() * 100); //alternativa: ParseInt (Math.Random()*100)
+    currentRandom.textContent = randomNumber;
 
-    
+    totalNumbers.textContent++; //alternativa: = Number(totalNumbers.textContent) + 1;
+    randomNumber % 2 === 0 ? evenNumbers.textContent++ : oddNumbers.textContent++;
+};
 
+// Apartado 11
 
+// Apartado 12
+document.querySelector("#toggler").onclick = (e) => e.target.classList.toggle("btn");// Devuelve HTMLCollection
+
+/* Refactorizar */
+let buttons = document.getElementsByClassName('btn-red');
+
+// buttons[0].addEventListener('click', () => {
+//     buttons[0].style.backgroundColor = "red";
+// });
+
+// buttons[1].addEventListener('click', () => {
+//     buttons[1].style.backgroundColor = "red";
+// });
+
+// buttons[2].addEventListener('click', () => {
+//     buttons[2].style.backgroundColor = "red";
+// });
+
+// Solucion 1
+Array.from(buttons).forEach(button => button.onclick = e => e.target.style.backgroundColor = "red");
+
+// Solución 2
+buttons = document.querySelectorAll('btn-red'); // devuelve NodeList que tiene disponivle forEach
+buttons.forEach(button => {
+
+    button.addEventListener("click", function (e) {
+        e.target.style.backgroundColor = "red";
+    });
+});
