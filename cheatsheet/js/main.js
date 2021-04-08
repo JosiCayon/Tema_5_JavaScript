@@ -477,4 +477,68 @@ mainLoop: while (true) {
     }
 }
 
+console.clear();
+//-------------------- Funciones de orden Superior --------------//
+// ----------------- Higher Order Functions -------------//
+
+// MAP
+let arr1 = [1, 2, 3];
+let arr2 = [];
+
+for (let num of arr1) {
+    arr2.push(num * 2);
+}
+
+console.log(arr1, arr2);
+
+// Con map
+arr1 = [1,2,3];
+arr2 = arr1.map(item => item *2);
+console.log(arr1, arr2);
+
+// A partir de una array con añops de nacimiento, calcular edades
+
+const birthYears = [1980, 1990, 1975, 1970];
+const years = birthYears.map(item => 2021 - item);
+console.log(years);
+
+// FILTER
+let prices = [150,50,49,51,15,237];
+let expensivePrices = [];
+
+for (const price of prices) {
+    if (price >= 50) {
+        expensivePrices.push(price);
+    }
+}
+console.log(expensivePrices);
+
+// Con Filter
+const prices = [150,50,49,51,15,237];
+const expensivePrices = prices.filter(item => item >= 50);
+console.log(expensivePrices);
+
+//
+
+const cars = [
+    {
+        brand: "BMW",
+        year: 1990,
+        plateNumber: "ZGY123"
+    },
+    {
+        brand: "Seat",
+        year: 2009,
+        plateNumber: "QGZ456"
+    },
+    {
+        brand: "SAAB",
+        year: 2000,
+        plateNumber: "JGH789"
+    },
+
+];
+
+console.log(cars.filter(car => car.year > 2008));
+
 
