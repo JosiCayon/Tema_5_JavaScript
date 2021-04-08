@@ -6,7 +6,7 @@ function User(name, firstLastName, secondLastName,email, age, city, productsCoun
     this.email = email;
     this.age = age;
     this.city = city;
-    this.productsCount = this.productsCount
+    this.productsCount = 0;
     this.incrementProducts = function () {
         this.productsCount++;
     }
@@ -30,8 +30,54 @@ const emptyButton = document.querySelector("#emptyButton");
 
 // Rellenar el select con diferentes opciones
 
-users.forEach(user) => {
+users.forEach(user => {
    let newOption = document.createElement("option");
    newOption.textContent = user.name;
    select.appendChild(newOption);
-};
+});
+
+// Rellenar la lista de un usuario cualquiera
+function fillList(user) {
+
+    list.innerHTML = "";
+
+    for ( const key in user) { // for...in itera con las propiedades
+        const value = user[key];
+
+        if (typeof value !== "function") {
+        //     // console.log(`key: ${key}, value: ${value}`);
+        //     const newListItem = document.createElement("li");
+        //     newListItem.innerHTML = `<b>${key}:</b> ${value}`;
+        //     // en vez de textContent cambiamos a inner para poder hardcodear la nagrita
+        //     newListItem.classList.add("list-group-item");
+        //     list.appendChild(newListItem);
+        // }
+        list.innerHTML += `<li class= "list-group-item"><b>${key}:</b> ${value}</li>`
+        }
+    }
+}
+
+// Estado Inicial
+
+fillList(users[0]); // se hacer para que inicialmente salga la tabla
+
+function processProducts(e) {
+    const selectedUser = users.find(user => user.name === select.value);
+    if (e.target.id === "incrementButton") {
+        selectedUser.incrementProducts();
+    } else {
+        selectedUser.emptyProducts();
+    }
+    fillList(selectedUser);
+}
+
+// Añadir listeners necesarios
+select.addEventListener("change", e => {
+    const selectedUser = users.find(user => user.name === select.value);
+    fillList(selectedUser);
+});
+incrementButton.addEventListener("click", processProducts);
+emptyButton.addEventListener("click", processProducts);
+
+
+
