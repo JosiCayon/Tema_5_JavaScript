@@ -30,7 +30,7 @@ const URL = "https://jsonplaceholder.typicode.com/users";
     printCities(data);
     printLats(data);
 
-}).catch(error => {
+    }).catch(error => {
     console.log(error);
 });
 
@@ -45,7 +45,26 @@ async function requestURL(URL) {
 
 requestURL(URL);
 
-// -------------------- POST ***********************
+// petición con método HTTP POST ***********************
+const POST_URL = "https://jsonplaceholder.typicode.com/posts";
+
+const newPost = {
+    title: "mi título",
+    body: "mi cuerpo de publicación"
+}
+
+const http = {
+    method: "POST",
+    headers: {
+        "Content-type": "applicaction/json"
+    },
+    body: JSON.stringify(newPost)
+
+};
+
+fetch(POST_URL, http)
+    .then(response => response.json())
+    .then(data => console.log(data))
 
 
 
